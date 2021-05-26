@@ -1,0 +1,41 @@
+//Import Scanner class
+import java.util.*;
+
+import jdk.javadoc.internal.doclets.toolkit.resources.doclets;
+
+public class GrossSalary {
+    //Function to calculate Gross Salary
+    static double findGrossSalary(double salary, double HRA, double DA) {
+        double grossSalary = salary + HRA + DA;
+        return grossSalary;
+    }
+    public static void main(String[] args) {
+        //Creating Scanner object
+        Scanner sc = new Scanner(System.in);
+
+        //Input number of test cases
+        int T = sc.nextInt();
+
+        //Loop till the number of test cases
+        for(int i=0; i<T; i++) {
+            //Input the basic salary
+            double salary = sc.nextInt();
+            double HRA, DA;
+
+            //If the sakary is below 1500
+            if(salary < 1500) {
+                HRA = salary * 0.1;
+                DA = salary * 0.9;
+                System.out.printf("%.2f\n", findGrossSalary(salary, HRA, DA));
+            }
+            //If the salary is greater than and equals to 1500
+            else {
+                HRA = 500;
+                DA = salary * 0.98;
+                System.out.printf("%.2f\n", findGrossSalary(salary, HRA, DA));
+            }
+        }
+
+        sc.close();
+    }
+}
